@@ -1,4 +1,4 @@
-package com.example.admin.keystroke_dynamics.DTO;
+package com.example.admin.keystroke_dynamics.DTO.User;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;

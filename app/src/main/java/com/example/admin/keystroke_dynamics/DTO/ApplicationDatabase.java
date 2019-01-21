@@ -5,6 +5,10 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import com.example.admin.keystroke_dynamics.DTO.Measure.MeasureDao;
+import com.example.admin.keystroke_dynamics.DTO.User.User;
+import com.example.admin.keystroke_dynamics.DTO.User.UserDao;
+
 @Database(entities = {User.class}, version = 1)
 public abstract class ApplicationDatabase extends RoomDatabase {
 

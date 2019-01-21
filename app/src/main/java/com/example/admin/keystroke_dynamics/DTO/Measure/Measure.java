@@ -1,8 +1,10 @@
-package com.example.admin.keystroke_dynamics.DTO;
+package com.example.admin.keystroke_dynamics.DTO.Measure;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+
+import com.example.admin.keystroke_dynamics.DTO.User.User;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 

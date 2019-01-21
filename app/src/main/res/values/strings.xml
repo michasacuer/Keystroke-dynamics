@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Keystroke-dynamics</string>
+    <string name="app_name">Keystroke Dynamics</string>
+    <string name="signup">No account yet? Create one</string>
+    <string name="login_button">Login</string>
+    <string name="pass_hint">Password</string>
+    <string name="email_hint">Email</string>
 </resources>

@@ -1,8 +1,10 @@
-package com.example.admin.keystroke_dynamics.DTO;
+package com.example.admin.keystroke_dynamics.DTO.User;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
+
+import com.example.admin.keystroke_dynamics.DTO.Repository;
 
 import java.util.List;
 

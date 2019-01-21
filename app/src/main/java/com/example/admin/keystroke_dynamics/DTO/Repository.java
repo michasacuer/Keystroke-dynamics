@@ -4,17 +4,20 @@ import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
+import com.example.admin.keystroke_dynamics.DTO.User.User;
+import com.example.admin.keystroke_dynamics.DTO.User.UserDao;
+
 import java.util.List;
 
 public class Repository {
 
-    Repository(Application application){
+    public Repository(Application application){
         ApplicationDatabase context = ApplicationDatabase.getDatabase(application);
         userDao = context.userDao();
         allUsers = userDao.getAllUsers();
     }
 
-    LiveData<List<User>> getAllUsers() {
+    public LiveData<List<User>> getAllUsers() {
         return allUsers;
     }
 

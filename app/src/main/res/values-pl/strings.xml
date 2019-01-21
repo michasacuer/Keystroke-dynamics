@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Keystroke Dynamics</string>
+    <string name="signup">Nie masz jeszcze konta? Załóż je!</string>
+    <string name="signup_button">Załóż konto</string>
+    <string name="login_button">Zaloguj się</string>
+    <string name="login">Posiadasz konto? Zaloguj się!</string>
+    <string name="pass_hint">Hasło</string>
+    <string name="email_hint">Email</string>
+    <string name="username_hint">Nazwa użytkownika</string>
+</resources>

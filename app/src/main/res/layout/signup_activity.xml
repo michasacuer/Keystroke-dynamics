@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".SignupActivity">>
 
-    <ScrollView
+    <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -18,6 +18,12 @@
             android:paddingTop="56dp"
             android:paddingLeft="24dp"
             android:paddingRight="24dp">
+
+            <ImageView android:src="@drawable/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="170dp"
+                android:layout_marginBottom="24dp"
+                android:layout_gravity="center_horizontal" />
 
             <!--  Name Label -->
             <android.support.design.widget.TextInputLayout
@@ -77,6 +83,6 @@
                 android:textSize="16dip"/>
 
         </LinearLayout>
-    </ScrollView>
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

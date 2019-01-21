@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".SignupActivity">>
+    tools:context=".Activities.SignupActivity">>
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,7 +15,6 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="56dp"
             android:paddingLeft="24dp"
             android:paddingRight="24dp">
 
@@ -24,6 +23,15 @@
                 android:layout_height="170dp"
                 android:layout_marginBottom="24dp"
                 android:layout_gravity="center_horizontal" />
+
+            <TextView android:id="@+id/link_signup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginBottom="24dp"
+                android:text="@string/registration_text"
+                android:gravity="center"
+                android:textSize="30dip"/>
 
             <!--  Name Label -->
             <android.support.design.widget.TextInputLayout
@@ -34,6 +42,7 @@
                 <EditText android:id="@+id/input_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:inputType="textCapWords"
                     android:hint="@string/username_hint" />
             </android.support.design.widget.TextInputLayout>
@@ -47,6 +56,7 @@
                 <EditText android:id="@+id/input_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:inputType="textEmailAddress"
                     android:hint="@string/email_hint" />
             </android.support.design.widget.TextInputLayout>
@@ -59,6 +69,7 @@
                 android:layout_marginBottom="8dp">
                 <EditText android:id="@+id/input_password"
                     android:layout_width="match_parent"
+                    android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:hint="@string/pass_hint"/>

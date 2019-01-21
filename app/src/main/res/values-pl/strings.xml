@@ -7,4 +7,5 @@
     <string name="pass_hint">Hasło</string>
     <string name="email_hint">Email</string>
     <string name="username_hint">Nazwa użytkownika</string>
+    <string name="registration_text">Rejestracja</string>
 </resources>

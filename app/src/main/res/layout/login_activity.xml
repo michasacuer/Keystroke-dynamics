@@ -4,13 +4,12 @@
     android:layout_height="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
-    tools:context=".LoginActivity">
+    tools:context=".Activities.LoginActivity">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="56dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
@@ -29,6 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/black"
                 android:hint="@string/email_hint" />
         </android.support.design.widget.TextInputLayout>
 
@@ -42,6 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:textColor="@color/black"
                 android:hint="@string/pass_hint"/>
         </android.support.design.widget.TextInputLayout>
 
@@ -59,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:padding="12dp"
+            android:onClick="goToSignupActivity"
             android:text="@string/signup_button"/>
 
     </LinearLayout>

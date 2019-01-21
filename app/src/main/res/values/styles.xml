@@ -14,7 +14,7 @@
         <item name="android:windowBackground">@color/white</item>
 
         <item name="colorControlNormal">@color/iron</item>
-        <item name="colorControlActivated">@color/iron</item>
+        <item name="colorControlActivated">@color/primary</item>
         <item name="colorControlHighlight">@color/iron</item>
         <item name="android:textColorHint">@color/iron</item>
 
@@ -24,7 +24,7 @@
 
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">@color/white</item>
-        <item name="android:textColorPrimary">@color/iron</item>
+        <item name="android:textColorPrimary">@color/primary</item>
         <item name="android:background">@color/primary</item>
     </style>
 

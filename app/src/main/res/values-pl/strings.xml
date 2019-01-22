@@ -1,4 +1,5 @@
 <resources>
+    <!-- Login and signup views -->
     <string name="app_name">Keystroke Dynamics</string>
     <string name="signup">Nie masz jeszcze konta? Załóż je!</string>
     <string name="signup_button">Załóż konto</string>
@@ -8,4 +9,9 @@
     <string name="email_hint">Email</string>
     <string name="username_hint">Nazwa użytkownika</string>
     <string name="registration_text">Rejestracja</string>
+
+    <!-- Signup validation -->
+    <string name="nameValidation">Minimum 3 znaki!</string>
+    <string name="passwordValidation">Hasło musi zawierać minimum 4 znaki!</string>
+    <string name="emailValidation">Wprowadź poprawny adres Email!</string>
 </resources>

@@ -15,7 +15,7 @@ public abstract class ApplicationDatabase extends RoomDatabase {
     public abstract UserDao userDao();
     public abstract MeasureDao measureDao();
 
-    static ApplicationDatabase getDatabase(final Context context){
+    public static ApplicationDatabase getDatabase(final Context context){
         if(INSTANCE == null){
             synchronized (ApplicationDatabase.class){
                 if(INSTANCE == null){

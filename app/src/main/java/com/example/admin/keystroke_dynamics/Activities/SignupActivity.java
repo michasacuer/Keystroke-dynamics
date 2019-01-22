@@ -29,6 +29,7 @@ public class SignupActivity extends AppCompatActivity {
                 if(validate()) {
                     MailBody mailBody = new MailBody(name, email, password);
                     signup.execute(name, email, password, mailBody.getBody(), getString(R.string.subject));
+
                 }
             }
         });

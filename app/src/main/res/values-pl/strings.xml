@@ -14,4 +14,8 @@
     <string name="nameValidation">Minimum 3 znaki!</string>
     <string name="passwordValidation">Hasło musi zawierać minimum 4 znaki!</string>
     <string name="emailValidation">Wprowadź poprawny adres Email!</string>
+
+    <!-- Signup registration -->
+    <string name="subject">Keystrok Dynamics - Rejestracja</string>
+    <string name="welcome">Witaj nowy użytkowniku! Tu są twoje dane:</string>
 </resources>

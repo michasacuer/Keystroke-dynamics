@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Keystroke-dynamics.iml" filepath="$PROJECT_DIR$/Keystroke-dynamics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Keystrokedynamics.iml" filepath="$PROJECT_DIR$/Keystrokedynamics.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

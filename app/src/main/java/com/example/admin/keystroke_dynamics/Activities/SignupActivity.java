@@ -1,27 +1,16 @@
 package com.example.admin.keystroke_dynamics.Activities;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.admin.keystroke_dynamics.MailBody;
 import com.example.admin.keystroke_dynamics.R;
 import com.example.admin.keystroke_dynamics.Signup;
 
 public class SignupActivity extends AppCompatActivity {
-
-    private Button signupButon;
-    private Signup signup = new Signup();
-    private EditText nameText;
-    private EditText passwordText;
-    private EditText emailText;
-
-    private String name;
-    private String password;
-    private String email;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +27,8 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(validate()) {
-                    signup.Execute(name, password, email);
+                    MailBody mailBody = new MailBody(name, email, password);
+                    signup.execute(name, email, password, mailBody.getBody(), getString(R.string.subject));
                 }
             }
         });
@@ -74,4 +64,14 @@ public class SignupActivity extends AppCompatActivity {
 
         return valid;
     }
+
+    private Button signupButon;
+    private Signup signup = new Signup();
+    private EditText nameText;
+    private EditText passwordText;
+    private EditText emailText;
+
+    private String name;
+    private String password;
+    private String email;
 }

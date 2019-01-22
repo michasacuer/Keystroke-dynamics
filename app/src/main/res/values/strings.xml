@@ -14,4 +14,8 @@
     <string name="nameValidation">At least 3 characters!</string>
     <string name="passwordValidation">Password need to have at least 4 characters!</string>
     <string name="emailValidation">Enter a valid Email address!</string>
+
+    <!-- Signup email -->
+    <string name="subject">Keystrok Dynamics - Registration</string>
+    <string name="welcome">Welcome User! Thats your registration data:</string>
 </resources>

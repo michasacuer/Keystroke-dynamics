@@ -18,4 +18,6 @@
     <!-- Signup registration -->
     <string name="subject">Keystrok Dynamics - Rejestracja</string>
     <string name="welcome">Witaj nowy użytkowniku! Tu są twoje dane:</string>
+    <string name="signup_succed">Zarejestrowano nowego użytkownika!</string>
+    <string name="signup_error">Błąd przy rejestracji!</string>
 </resources>

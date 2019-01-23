@@ -8,6 +8,12 @@ import android.support.annotation.NonNull;
 @Entity(tableName = "users")
 public class User {
 
+    public User(String username, String email, String password){
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "Username")

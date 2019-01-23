@@ -18,4 +18,6 @@
     <!-- Signup email -->
     <string name="subject">Keystrok Dynamics - Registration</string>
     <string name="welcome">Welcome User! Thats your registration data:</string>
+    <string name="signup_succed">New user registered!</string>
+    <string name="signup_error">Registration error!</string>
 </resources>

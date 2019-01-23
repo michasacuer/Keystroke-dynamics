@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.admin.keystroke_dynamics.MailBody;
 import com.example.admin.keystroke_dynamics.R;
@@ -27,15 +28,24 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(validate()) {
-                    MailBody mailBody = new MailBody(getApplicationContext(), name, email, password);
-                    signup.execute(name, email, password, mailBody.getBody(), getString(R.string.subject));
-                    finish();
+                    try {
+                        signup = new Signup(getApplicationContext());
+                        MailBody mailBody = new MailBody(getApplicationContext(), name, email, password);
+                        signup.execute(name, email, password, mailBody.getBody(), getString(R.string.subject));
+                        Toast.makeText(getApplicationContext(), getString(R.string.signup_succed), Toast.LENGTH_LONG).show();
+                        finish();
+                    } catch(Exception e) {
+
+                        Toast.makeText(getApplicationContext(), getString(R.string.signup_error), Toast.LENGTH_LONG).show();
+                        finish();
+                    }
                 }
             }
         });
     }
 
     public boolean validate() {
+
         boolean valid = true;
 
         name = nameText.getText().toString();
@@ -67,7 +77,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private Button signupButon;
-    private Signup signup = new Signup();
+    private Signup signup;
     private EditText nameText;
     private EditText passwordText;
     private EditText emailText;

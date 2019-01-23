@@ -27,9 +27,9 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(validate()) {
-                    MailBody mailBody = new MailBody(name, email, password);
+                    MailBody mailBody = new MailBody(getApplicationContext(), name, email, password);
                     signup.execute(name, email, password, mailBody.getBody(), getString(R.string.subject));
-
+                    finish();
                 }
             }
         });

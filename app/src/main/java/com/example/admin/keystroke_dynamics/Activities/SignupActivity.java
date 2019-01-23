@@ -7,9 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.admin.keystroke_dynamics.MailBody;
+import com.example.admin.keystroke_dynamics.Signup.MailBody;
 import com.example.admin.keystroke_dynamics.R;
-import com.example.admin.keystroke_dynamics.Signup;
+import com.example.admin.keystroke_dynamics.Signup.Signup;
 
 public class SignupActivity extends AppCompatActivity {
 

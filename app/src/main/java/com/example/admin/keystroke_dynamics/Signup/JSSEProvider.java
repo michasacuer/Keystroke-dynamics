@@ -1,4 +1,4 @@
-package com.example.admin.keystroke_dynamics;
+package com.example.admin.keystroke_dynamics.Signup;
 
 /*
  *  Licensed to the Apache Software Foundation (ASF) under one or more

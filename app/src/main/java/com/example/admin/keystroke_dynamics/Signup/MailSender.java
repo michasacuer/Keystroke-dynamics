@@ -1,4 +1,4 @@
-package com.example.admin.keystroke_dynamics;
+package com.example.admin.keystroke_dynamics.Signup;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

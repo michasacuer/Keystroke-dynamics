@@ -1,7 +1,7 @@
 package com.example.admin.keystroke_dynamics.DTO;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
+import android.content.Context;
 import android.os.AsyncTask;
 
 import com.example.admin.keystroke_dynamics.DTO.User.User;
@@ -11,18 +11,27 @@ import java.util.List;
 
 public class Repository {
 
-    public Repository(Application application){
-        ApplicationDatabase context = ApplicationDatabase.getDatabase(application);
-        userDao = context.userDao();
+    public Repository(Context context){
+        ApplicationDatabase db = ApplicationDatabase.getDatabase(context);
+        userDao = db.userDao();
         allUsers = userDao.getAllUsers();
     }
 
-    public LiveData<List<User>> getAllUsers() {
+    public List<User> getAllUsers() {
         return allUsers;
     }
 
     public void insert(User user){
         new insertAsyncTask(userDao).execute(user);
+    }
+
+    public User getUser(String email, String password) {
+        for(User user : allUsers){
+            if(email == user.getEmail() && password == user.getPassword()){
+                return user;
+            }
+        }
+        return null;
     }
 
     private static class insertAsyncTask extends AsyncTask<User, Void, Void>{
@@ -41,5 +50,5 @@ public class Repository {
     }
 
     private UserDao userDao;
-    private LiveData<List<User>> allUsers;
+    private List<User> allUsers;
 }

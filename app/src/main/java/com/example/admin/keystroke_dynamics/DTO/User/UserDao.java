@@ -14,9 +14,9 @@ public interface UserDao {
     @Insert(onConflict = OnConflictStrategy.FAIL)
     void insertUser(User user);
 
-    @Query("SELECT * FROM users WHERE username = :username")
-    LiveData<User> getUser(String username);
+    @Query("SELECT * FROM users WHERE email = :email AND password = :password ")
+    User getUser(String email, String password);
 
     @Query("Select * FROM users")
-    LiveData<List<User>> getAllUsers();
+    List<User> getAllUsers();
 }

@@ -14,6 +14,8 @@ public class User {
         this.password = password;
     }
 
+    public User() {}
+
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "Username")

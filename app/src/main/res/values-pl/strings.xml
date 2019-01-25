@@ -20,4 +20,8 @@
     <string name="welcome">Witaj nowy użytkowniku! Tu są twoje dane:</string>
     <string name="signup_succed">Zarejestrowano nowego użytkownika!</string>
     <string name="signup_error">Błąd przy rejestracji!</string>
+
+    <!-- Login Validation -->
+    <string name="login_succed">Witaj ponownie!</string>
+    <string name="login_error">Niepoprawne dane logowania!</string>
 </resources>

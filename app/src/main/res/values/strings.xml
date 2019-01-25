@@ -20,4 +20,8 @@
     <string name="welcome">Welcome User! Thats your registration data:</string>
     <string name="signup_succed">New user registered!</string>
     <string name="signup_error">Registration error!</string>
+
+    <!-- Login Validation -->
+    <string name="login_succed">Welcome back!</string>
+    <string name="login_error">Wrong login details!</string>
 </resources>

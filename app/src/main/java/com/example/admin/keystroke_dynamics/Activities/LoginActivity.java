@@ -1,17 +1,16 @@
 package com.example.admin.keystroke_dynamics.Activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.admin.keystroke_dynamics.DTO.User.User;
-import com.example.admin.keystroke_dynamics.Login;
-import com.example.admin.keystroke_dynamics.LoginListener;
+import com.example.admin.keystroke_dynamics.Login.Login;
+import com.example.admin.keystroke_dynamics.Login.LoginListener;
 import com.example.admin.keystroke_dynamics.R;
 
 public class LoginActivity extends AppCompatActivity implements LoginListener {
@@ -37,17 +36,20 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
                 email = emailText.getText().toString();
                 password = passwordText.getText().toString();
                 Login newLogin = new Login(login);
+
                 try {
                     newLogin.execute(email, password).get();
+                } catch (Exception e){
+                    Toast.makeText(getApplicationContext(), getString(R.string.login_error), Toast.LENGTH_LONG).show();
                 }
-                catch(Exception e){ }
+
                 if(loginValid) {
-                    Toast.makeText(getApplicationContext(), "weszło", Toast.LENGTH_LONG).show();
-                    loginValid = false;
+                    Toast.makeText(getApplicationContext(), getString(R.string.login_succed), Toast.LENGTH_LONG).show();
+                    setResult(Activity.RESULT_OK);
+                    finish();
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "nieweszlo", Toast.LENGTH_LONG).show();
-                    loginValid = false;
+                    Toast.makeText(getApplicationContext(), getString(R.string.login_error), Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -47,22 +47,22 @@
         <com.github.clans.fab.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fab_label="Add measure"
+        app:fab_label="@string/floating_btn_addmeasure"
         app:fab_size="normal"
-            app:menu_colorNormal="@color/primary_dark"
-            app:menu_colorPressed="@color/primary"
-            app:menu_colorRipple="@color/white"
+            app:fab_colorNormal="@color/primary_dark"
+            app:fab_colorPressed="@color/primary"
+            app:fab_colorRipple="@color/white"
         android:id="@+id/floating_button_addMeasure"
             android:src="@mipmap/ic_addmeasure" />
 
         <com.github.clans.fab.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fab_label="Classification"
+            app:fab_label="@string/floating_btn_classification"
             app:fab_size="normal"
-            app:menu_colorNormal="@color/primary_dark"
-            app:menu_colorPressed="@color/primary"
-            app:menu_colorRipple="@color/white"
+            app:fab_colorNormal="@color/primary_dark"
+            app:fab_colorPressed="@color/primary"
+            app:fab_colorRipple="@color/white"
             android:id="@+id/floating_button_classification"
             android:src="@mipmap/ic_classification" />
 

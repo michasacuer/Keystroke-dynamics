@@ -25,8 +25,14 @@
     <string name="login_succed">Welcome back!</string>
     <string name="login_error">Wrong login details!</string>
 
+    <!-- Main Activity -->
+    <string name="floating_btn_addmeasure">Add measure</string>
+    <string name="floating_btn_classification">Classification</string>
+
     <!-- Add Measure Activity -->
     <string name="measure_string">9RJhl6aH0n</string>
     <string name="measure_instruction">Enter the text below:</string>
     <string name="measure_labelhint">Enter text here</string>
+    <string name="measure_acceptbutton">Accept</string>
+    <string name="measure_cancelbutton">Cancel</string>
 </resources>

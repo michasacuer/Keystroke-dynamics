@@ -42,6 +42,22 @@
                 android:hint="@string/measure_labelhint" />
         </android.support.design.widget.TextInputLayout>
 
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_accept"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="12dp"
+            android:text="@string/measure_acceptbutton"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="12dp"
+            android:text="@string/measure_cancelbutton"/>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -24,4 +24,9 @@
     <!-- Login Validation -->
     <string name="login_succed">Welcome back!</string>
     <string name="login_error">Wrong login details!</string>
+
+    <!-- Add Measure Activity -->
+    <string name="measure_string">9RJhl6aH0n</string>
+    <string name="measure_instruction">Enter the text below:</string>
+    <string name="measure_labelhint">Enter text here</string>
 </resources>

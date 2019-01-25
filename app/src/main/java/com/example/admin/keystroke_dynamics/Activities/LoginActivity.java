@@ -15,12 +15,6 @@ import com.example.admin.keystroke_dynamics.R;
 
 public class LoginActivity extends AppCompatActivity implements LoginListener {
 
-    private Intent activityIntent;
-    private Button loginButton;
-    private EditText emailText;
-    private EditText passwordText;
-    private Login login;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,5 +62,10 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
     private boolean loginValid;
     private String email;
     private String password;
+    private Intent activityIntent;
+    private Button loginButton;
+    private EditText emailText;
+    private EditText passwordText;
+    private Login login;
 }
 

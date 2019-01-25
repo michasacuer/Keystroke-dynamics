@@ -29,12 +29,46 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <android.support.design.widget.FloatingActionButton
-    android:id="@+id/fab"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="end|bottom"
-    android:layout_margin="16dp" />
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/floating_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        app:menu_showShadow="true"
+        app:menu_fab_label=""
+        app:menu_openDirection="up"
+        app:menu_colorNormal="@color/primary_dark"
+        app:menu_colorPressed="@color/primary"
+        app:menu_colorRipple="@color/white">
+
+        <com.github.clans.fab.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_label="Add measure"
+        app:fab_size="normal"
+            app:menu_colorNormal="@color/primary_dark"
+            app:menu_colorPressed="@color/primary"
+            app:menu_colorRipple="@color/white"
+        android:id="@+id/floating_button_addMeasure"
+            android:src="@mipmap/ic_addmeasure" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_label="Classification"
+            app:fab_size="normal"
+            app:menu_colorNormal="@color/primary_dark"
+            app:menu_colorPressed="@color/primary"
+            app:menu_colorRipple="@color/white"
+            android:id="@+id/floating_button_classification"
+            android:src="@mipmap/ic_classification" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+
 
 
 </RelativeLayout>

@@ -28,6 +28,8 @@
     <!-- Main Activity -->
     <string name="floating_btn_addmeasure">Add measure</string>
     <string name="floating_btn_classification">Classification</string>
+    <string name="navigation_drawer_open">Open menu</string>
+    <string name="navigation_drawer_close">Close menu</string>
 
     <!-- Add Measure Activity -->
     <string name="measure_string">9RJhl6aH0n</string>

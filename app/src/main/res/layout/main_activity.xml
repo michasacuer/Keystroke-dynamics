@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,32 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".Activities.MainActivity"
     android:descendantFocusability="beforeDescendants"
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
     android:focusableInTouchMode="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/primary"
+            android:id="@+id/toolbar"
+            android:elevation="4dp"/>
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/my_recycler_view"
-        android:scrollbars="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:id="@+id/nav_view"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/main_menu"/>
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/floating_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -45,14 +54,14 @@
         app:menu_colorRipple="@color/white">
 
         <com.github.clans.fab.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:fab_label="@string/floating_btn_addmeasure"
-        app:fab_size="normal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:fab_label="@string/floating_btn_addmeasure"
+            app:fab_size="normal"
             app:fab_colorNormal="@color/primary_dark"
             app:fab_colorPressed="@color/primary"
             app:fab_colorRipple="@color/white"
-        android:id="@+id/floating_button_addMeasure"
+            android:id="@+id/floating_button_addMeasure"
             android:src="@mipmap/ic_addmeasure" />
 
         <com.github.clans.fab.FloatingActionButton
@@ -66,9 +75,9 @@
             android:id="@+id/floating_button_classification"
             android:src="@mipmap/ic_classification" />
 
+
+
     </com.github.clans.fab.FloatingActionMenu>
 
 
-
-
-</RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

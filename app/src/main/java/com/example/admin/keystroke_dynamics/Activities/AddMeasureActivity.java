@@ -19,17 +19,6 @@ public class AddMeasureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addmeasure_activity);
         measureText = findViewById(R.id.input_measure);
-
-        measureText.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(keyCode == KeyEvent.KEYCODE_K)
-                    return false;
-                return true;
-            }
-        });
-
-
     }
 
     private EditText measureText;

@@ -14,5 +14,8 @@ public class Measure {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
+
+
+
     private int userId;
 }

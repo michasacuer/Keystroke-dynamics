@@ -9,7 +9,7 @@ import com.example.admin.keystroke_dynamics.DTO.Measure.MeasureDao;
 import com.example.admin.keystroke_dynamics.DTO.User.User;
 import com.example.admin.keystroke_dynamics.DTO.User.UserDao;
 
-@Database(entities = {User.class}, version = 1)
+@Database(entities = {User.class}, version = 2)
 public abstract class ApplicationDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();

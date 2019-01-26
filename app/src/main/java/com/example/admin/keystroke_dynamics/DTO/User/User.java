@@ -16,7 +16,9 @@ public class User {
 
     public User() {}
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
     @NonNull
     @ColumnInfo(name = "Username")
     private String username;
@@ -26,6 +28,9 @@ public class User {
 
     @ColumnInfo(name = "Password")
     private String password;
+
+    public int getId() {return id;}
+    public void setId(int id) {this.id = id;}
 
     public String getUsername() {return this.username;}
     public void setUsername(String username) {this.username = username;}

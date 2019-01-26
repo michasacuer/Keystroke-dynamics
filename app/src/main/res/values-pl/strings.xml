@@ -37,4 +37,7 @@
     <string name="measure_labelhint">Wprowadź tekst tutaj</string>
     <string name="measure_acceptbutton">Akceptuj</string>
     <string name="measure_cancelbutton">Anuluj</string>
+
+    <!-- Navbar -->
+    <string name="nav_logout">Wyloguj się</string>
 </resources>

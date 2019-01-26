@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-    <group android:checkableBehavior="single">
+    <group>
         <item android:id="@+id/nav_logout"
-              android:title="Logout" />
+              android:title="@string/nav_logout" />
     </group>
 
 </menu>

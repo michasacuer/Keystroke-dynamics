@@ -14,13 +14,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Coding"
+        android:id="@+id/nav_text_email"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/white"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="info@email.com"
+        android:id="@+id/nav_text_username"
         android:textColor="@color/white"/>
 
     </LinearLayout>

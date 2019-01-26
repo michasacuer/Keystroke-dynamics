@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import com.example.admin.keystroke_dynamics.DTO.ApplicationDatabase;
 import com.example.admin.keystroke_dynamics.DTO.User.User;
 
+
 public class Login extends AsyncTask<String, Boolean, Boolean> {
 
     public Login(Context context, LoginListener listener){
@@ -24,8 +25,12 @@ public class Login extends AsyncTask<String, Boolean, Boolean> {
     protected Boolean doInBackground(String... body){
         try {
             user = db.userDao().getUser(body[0], body[1]);
-            if (user != null)
+            if (user != null) {
+                loggedUser = loggedUser.getInstance();
+                loggedUser.setEmail(user.getEmail());
+                loggedUser.setUsername(user.getUsername());
                 return Boolean.TRUE;
+            }
             else {
                 return Boolean.FALSE;
             }
@@ -43,4 +48,5 @@ public class Login extends AsyncTask<String, Boolean, Boolean> {
     private User user;
     private LoginListener listener;
     private Context context;
+    private LoggedUser loggedUser;
 }

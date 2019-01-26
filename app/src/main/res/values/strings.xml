@@ -37,4 +37,7 @@
     <string name="measure_labelhint">Enter text here</string>
     <string name="measure_acceptbutton">Accept</string>
     <string name="measure_cancelbutton">Cancel</string>
+
+    <!-- Navbar -->
+    <string name="nav_logout">Logout</string>
 </resources>

@@ -19,7 +19,10 @@ public class LoggedUser {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
-    private LoggedUser(){ }
+    private LoggedUser(){
+        username = STRING_EMPTY;
+        email = STRING_EMPTY;
+    }
 
     private static String username;
     private static String email;

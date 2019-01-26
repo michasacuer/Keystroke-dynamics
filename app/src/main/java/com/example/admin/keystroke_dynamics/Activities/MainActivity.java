@@ -39,9 +39,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivityForResult(new Intent(this, LoginActivity.class), REQUEST_CODE);
         addMeasureActivity = new Intent(this, AddMeasureActivity.class);
 
-        emailText = findViewById(R.id.nav_text_email);
-        usernameText = findViewById(R.id.nav_text_username);
-
         addMeasureButton = findViewById(R.id.floating_button_addMeasure);
         addMeasureButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -57,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if(resultCode != Activity.RESULT_OK) {
                 finish();
             }
+            isLogged = true;
+            loggedUser = loggedUser.getInstance();
         }
     }
 
@@ -84,8 +83,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onResume()
     {
-        emailText.setText(loggedUser.getEmail());
-        usernameText.setText(loggedUser.getUsername());
+        if(isLogged) {
+            emailText = findViewById(R.id.nav_text_email);
+            usernameText = findViewById(R.id.nav_text_username);
+            emailText.setText(loggedUser.getEmail());
+            usernameText.setText(loggedUser.getUsername());
+        }
         super.onResume();
     }
 
@@ -94,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FloatingActionButton addMeasureButton;
     private Intent addMeasureActivity;
     private DrawerLayout drawerLayout;
+    private boolean isLogged = false;
     private LoggedUser loggedUser;
     private TextView emailText;
     private TextView usernameText;

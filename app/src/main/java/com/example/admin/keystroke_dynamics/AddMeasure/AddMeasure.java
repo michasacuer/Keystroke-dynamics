@@ -21,8 +21,7 @@ public class AddMeasure extends AsyncTask<String, Boolean, Boolean> {
             } else {
                 return Boolean.FALSE;
             }
-        }
-        catch(Exception e){
+        } catch(Exception e){
             return null;
         }
     }

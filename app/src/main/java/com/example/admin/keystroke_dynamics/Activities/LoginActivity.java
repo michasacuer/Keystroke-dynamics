@@ -36,15 +36,6 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
                 } catch (Exception e){
                     Toast.makeText(getApplicationContext(), getString(R.string.login_error), Toast.LENGTH_LONG).show();
                 }
-
-                if(loginValid) {
-                    Toast.makeText(getApplicationContext(), getString(R.string.login_succed), Toast.LENGTH_LONG).show();
-                    setResult(Activity.RESULT_OK);
-                    finish();
-                }
-                else {
-                    Toast.makeText(getApplicationContext(), getString(R.string.login_error), Toast.LENGTH_LONG).show();
-                }
             }
         });
     }
@@ -56,10 +47,16 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 
     @Override
     public void onLoginPerformed(Boolean result){
-        this.loginValid = result;
+        if(result) {
+            Toast.makeText(getApplicationContext(), getString(R.string.login_succed), Toast.LENGTH_LONG).show();
+            setResult(Activity.RESULT_OK);
+            finish();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), getString(R.string.login_error), Toast.LENGTH_LONG).show();
+        }
     }
 
-    private boolean loginValid;
     private String email;
     private String password;
     private Intent activityIntent;

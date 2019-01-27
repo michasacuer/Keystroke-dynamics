@@ -10,6 +10,7 @@
     <string name="username_hint">Nazwa użytkownika</string>
     <string name="registration_text">Rejestracja</string>
     <string name="login_text">Logowanie</string>
+    <string name="github">github.com/michasacuer</string>
 
     <!-- Signup validation -->
     <string name="nameValidation">Minimum 3 znaki!</string>

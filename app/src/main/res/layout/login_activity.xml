@@ -67,10 +67,18 @@
             android:id="@+id/btn_signup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:padding="12dp"
             android:onClick="goToSignupActivity"
             android:text="@string/signup_button"/>
+        <TextView android:id="@+id/link_login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/github"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:textColor="@color/primary_dark"
+            android:textSize="16dip"/>
 
     </LinearLayout>
 </RelativeLayout>

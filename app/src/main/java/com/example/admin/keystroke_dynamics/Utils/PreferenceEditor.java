@@ -36,11 +36,7 @@ public class PreferenceEditor {
     }
 
     public boolean isEmpty(){
-        if(email == null && username == null){
-            return true;
-        } else {
-            return false;
-        }
+        return email == null && username == null;
     }
 
     private Context context;

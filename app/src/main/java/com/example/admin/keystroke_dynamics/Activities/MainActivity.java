@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-
     static final private int REQUEST_CODE = 0;
     private FloatingActionButton addMeasureButton;
     private Intent addMeasureActivity;

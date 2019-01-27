@@ -38,12 +38,6 @@ public class SignupActivity extends AppCompatActivity implements SignupListener 
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), getString(R.string.signup_error), Toast.LENGTH_LONG).show();
                     }
-                    if(signupValid) {
-                        Toast.makeText(getApplicationContext(), getString(R.string.signup_succed), Toast.LENGTH_LONG).show();
-                        finish();
-                    } else {
-                        Toast.makeText(getApplicationContext(), getString(R.string.signup_error), Toast.LENGTH_LONG).show();
-                    }
                 }
             }
         });
@@ -51,7 +45,12 @@ public class SignupActivity extends AppCompatActivity implements SignupListener 
 
     @Override
     public void onSignupPerformed(Boolean result){
-        this.signupValid = result;
+        if(result) {
+            Toast.makeText(getApplicationContext(), getString(R.string.signup_succed), Toast.LENGTH_LONG).show();
+            finish();
+        } else {
+            Toast.makeText(getApplicationContext(), getString(R.string.signup_error), Toast.LENGTH_LONG).show();
+        }
     }
 
     private boolean validate() {
@@ -95,5 +94,4 @@ public class SignupActivity extends AppCompatActivity implements SignupListener 
     private String name;
     private String password;
     private String email;
-    private boolean signupValid;
 }

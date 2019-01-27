@@ -1,13 +1,12 @@
 package com.example.admin.keystroke_dynamics.Signup;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
 import com.example.admin.keystroke_dynamics.DTO.ApplicationDatabase;
 import com.example.admin.keystroke_dynamics.DTO.User.User;
 
-public class Signup extends AsyncTask<String,  Boolean, Boolean> {
+public class Signup extends AsyncTask<String, Boolean, Boolean> {
 
     public Signup(Context context, SignupListener listener){
         db = ApplicationDatabase.getDatabase(context);
@@ -22,7 +21,8 @@ public class Signup extends AsyncTask<String,  Boolean, Boolean> {
     }
 
     @Override
-    protected void onPreExecute() { }
+    protected void onPreExecute() {
+    }
 
     protected Boolean doInBackground(String... body){
         try {

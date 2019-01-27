@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.admin.keystroke_dynamics.Login.LoggedUser;
 import com.example.admin.keystroke_dynamics.R;
+import com.example.admin.keystroke_dynamics.Utils.PreferenceEditor;
 import com.github.clans.fab.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        loggedUserSharedPreferenceEditor = new PreferenceEditor(this);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -39,31 +42,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        loggerUserCredentials = this.getSharedPreferences("Credentials", Context.MODE_PRIVATE);
-        int id = loggerUserCredentials.getInt("id", -1);
-        String email = loggerUserCredentials.getString("email", null);
-        String username = loggerUserCredentials.getString("username", null);
-
-
         View header=navigationView.getHeaderView(0);
-        navHeader = getLayoutInflater().inflate(R.layout.nav_header, null);
         emailText = header.findViewById(R.id.nav_text_email);
         usernameText = header.findViewById(R.id.nav_text_username);
 
-        if(email == null && username == null)
+        if(loggedUserSharedPreferenceEditor.isEmpty())
             startActivityForResult(new Intent(this, LoginActivity.class), REQUEST_CODE);
 
         else{
             isLogged = true;
             loggedUser = loggedUser.getInstance();
-            loggedUser.setId(id);
-            loggedUser.setEmail(email);
-            loggedUser.setUsername(username);
+            loggedUserSharedPreferenceEditor.load(loggedUser);
             emailText.setText(loggedUser.getEmail());
             usernameText.setText(loggedUser.getUsername());
-
         }
-
 
         addMeasureActivity = new Intent(this, AddMeasureActivity.class);
 
@@ -84,12 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             isLogged = true;
             loggedUser = loggedUser.getInstance();
-            loggerUserCredentials = this.getSharedPreferences("Credentials", Context.MODE_PRIVATE);
-            credentialsEditor = loggerUserCredentials.edit();
-            credentialsEditor.putInt("id", loggedUser.getId());
-            credentialsEditor.putString("email", loggedUser.getEmail());
-            credentialsEditor.putString("username", loggedUser.getUsername());
-            credentialsEditor.apply();
+            loggedUserSharedPreferenceEditor.save(loggedUser);
             emailText.setText(loggedUser.getEmail());
             usernameText.setText(loggedUser.getUsername());
 
@@ -112,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 isLogged = false;
                 loggedUser.resetInstance();
                 startActivityForResult(new Intent(this, LoginActivity.class), REQUEST_CODE);
-                loggerUserCredentials.edit().clear().commit();
+                loggedUserSharedPreferenceEditor.clear();
                 Toast.makeText(getApplicationContext(), getString(R.string.logout), Toast.LENGTH_SHORT).show();
                 break;
         }
@@ -128,7 +115,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private LoggedUser loggedUser;
     private TextView emailText;
     private TextView usernameText;
-    private SharedPreferences loggerUserCredentials;
-    private SharedPreferences.Editor credentialsEditor;
-    private View navHeader;
+    private PreferenceEditor loggedUserSharedPreferenceEditor;
 }

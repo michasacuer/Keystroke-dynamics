@@ -16,6 +16,7 @@ public class User {
 
     public User() {}
 
+    @ColumnInfo(name = "Id")
     @PrimaryKey(autoGenerate = true)
     private int id;
 

@@ -35,7 +35,7 @@
     <string name="logout">Wylogowywanie...</string>
 
     <!-- Add Measure Activity -->
-    <string name="measure_string">9RJhl6aH0n</string>
+    <string name="measure_string">9RJhl6a0n</string>
     <string name="measure_instruction">Wprowadź poniższy teskst:</string>
     <string name="measure_labelhint">Wprowadź tekst tutaj</string>
     <string name="measure_acceptbutton">Akceptuj</string>

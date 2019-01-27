@@ -1,27 +1,32 @@
 package com.example.admin.keystroke_dynamics.Signup;
 
-import android.content.Context;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
+import com.example.admin.keystroke_dynamics.Activities.SignupActivity;
 import com.example.admin.keystroke_dynamics.DTO.ApplicationDatabase;
 import com.example.admin.keystroke_dynamics.DTO.User.User;
+import com.example.admin.keystroke_dynamics.R;
 
 public class Signup extends AsyncTask<String, Boolean, Boolean> {
 
-    public Signup(Context context, SignupListener listener){
-        db = ApplicationDatabase.getDatabase(context);
-        this.context = context;
+    public Signup(SignupActivity signupActivity, SignupListener listener){
+        db = ApplicationDatabase.getDatabase(signupActivity);
+        this.signupActivity = signupActivity;
         this.listener = listener;
     }
 
     public Signup(Signup signup){
         db = signup.db;
-        context = signup.context;
+        signupActivity = signup.signupActivity;
         listener = signup.listener;
     }
 
     @Override
     protected void onPreExecute() {
+        dialog = new ProgressDialog(signupActivity, R.style.AppTheme_Dark_Dialog);
+        this.dialog.setMessage(signupActivity.getResources().getString(R.string.communicate));
+        this.dialog.show();
     }
 
     protected Boolean doInBackground(String... body){
@@ -45,10 +50,14 @@ public class Signup extends AsyncTask<String, Boolean, Boolean> {
 
     protected void onPostExecute(Boolean result) {
         listener.onSignupPerformed(result);
+        if (dialog.isShowing()) {
+            dialog.dismiss();
+        }
     }
 
     private ApplicationDatabase db;
     private SignupListener listener;
-    private Context context;
+    private SignupActivity signupActivity;
     private User user;
+    private ProgressDialog dialog;
 }

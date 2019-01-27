@@ -25,7 +25,7 @@ public class SignupActivity extends AppCompatActivity implements SignupListener 
         passwordText = findViewById(R.id.input_password);
         emailText = findViewById(R.id.input_email);
 
-        signup = new Signup(getApplicationContext(), this);
+        signup = new Signup(SignupActivity.this, this);
 
         signupButon.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -34,7 +34,7 @@ public class SignupActivity extends AppCompatActivity implements SignupListener 
                     try {
                         Signup newSignup = new Signup(signup);
                         MailBody mailBody = new MailBody(getApplicationContext(), name, email, password);
-                        newSignup.execute(name, email, password, mailBody.getBody(), getString(R.string.subject)).get();
+                        newSignup.execute(name, email, password, mailBody.getBody(), getString(R.string.subject));
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), getString(R.string.signup_error), Toast.LENGTH_LONG).show();
                     }

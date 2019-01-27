@@ -9,6 +9,7 @@
     <string name="email_hint">Email</string>
     <string name="username_hint">Username</string>
     <string name="registration_text">Registration</string>
+    <string name="login_text">Login in</string>
 
     <!-- Signup validation -->
     <string name="nameValidation">At least 3 characters!</string>
@@ -41,4 +42,7 @@
 
     <!-- Navbar -->
     <string name="nav_logout">Logout</string>
+
+    <!-- Progres dialog -->
+    <string name="communicate">Please wait...</string>
 </resources>

@@ -23,9 +23,10 @@
     </style>
 
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
-        <item name="colorAccent">@color/white</item>
-        <item name="android:textColorPrimary">@color/primary</item>
-        <item name="android:background">@color/primary</item>
+        <item name="colorAccent">@color/primary</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/primary_darker</item>
     </style>
 
 </resources>

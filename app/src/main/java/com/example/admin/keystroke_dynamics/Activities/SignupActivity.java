@@ -10,8 +10,9 @@ import android.widget.Toast;
 import com.example.admin.keystroke_dynamics.Signup.MailBody;
 import com.example.admin.keystroke_dynamics.R;
 import com.example.admin.keystroke_dynamics.Signup.Signup;
+import com.example.admin.keystroke_dynamics.Signup.SignupListener;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity implements SignupListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,27 +25,36 @@ public class SignupActivity extends AppCompatActivity {
         passwordText = findViewById(R.id.input_password);
         emailText = findViewById(R.id.input_email);
 
+        signup = new Signup(getApplicationContext(), this);
+
         signupButon.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 if(validate()) {
                     try {
-                        signup = new Signup(getApplicationContext());
+                        Signup newSignup = new Signup(signup);
                         MailBody mailBody = new MailBody(getApplicationContext(), name, email, password);
-                        signup.execute(name, email, password, mailBody.getBody(), getString(R.string.subject));
+                        newSignup.execute(name, email, password, mailBody.getBody(), getString(R.string.subject)).get();
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), getString(R.string.signup_error), Toast.LENGTH_LONG).show();
+                    }
+                    if(signupValid) {
                         Toast.makeText(getApplicationContext(), getString(R.string.signup_succed), Toast.LENGTH_LONG).show();
                         finish();
-                    } catch(Exception e) {
-
+                    } else {
                         Toast.makeText(getApplicationContext(), getString(R.string.signup_error), Toast.LENGTH_LONG).show();
-                        finish();
                     }
                 }
             }
         });
     }
 
-    public boolean validate() {
+    @Override
+    public void onSignupPerformed(Boolean result){
+        this.signupValid = result;
+    }
+
+    private boolean validate() {
 
         boolean valid = true;
 
@@ -85,4 +95,5 @@ public class SignupActivity extends AppCompatActivity {
     private String name;
     private String password;
     private String email;
+    private boolean signupValid;
 }

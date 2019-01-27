@@ -27,6 +27,7 @@ public class Login extends AsyncTask<String, Boolean, Boolean> {
             user = db.userDao().getUser(body[0], body[1]);
             if (user != null) {
                 loggedUser = loggedUser.getInstance();
+                loggedUser.setId(user.getId());
                 loggedUser.setEmail(user.getEmail());
                 loggedUser.setUsername(user.getUsername());
                 return Boolean.TRUE;

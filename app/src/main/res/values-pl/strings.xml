@@ -30,6 +30,7 @@
     <string name="floating_btn_classification">Klasyfikacja</string>
     <string name="navigation_drawer_open">Otwórz menu</string>
     <string name="navigation_drawer_close">Zamknij menu</string>
+    <string name="logout">Wylogowywanie...</string>
 
     <!-- Add Measure Activity -->
     <string name="measure_string">9RJhl6aH0n</string>

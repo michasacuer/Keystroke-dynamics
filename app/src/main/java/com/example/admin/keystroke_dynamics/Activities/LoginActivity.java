@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         loginButton = findViewById(R.id.btn_login);
         emailText = findViewById(R.id.input_email);
         passwordText = findViewById(R.id.input_password);
-        login = new Login(getApplicationContext(), this);
+        login = new Login(LoginActivity.this, this);
 
         loginButton.setOnClickListener(new View.OnClickListener(){
             @Override

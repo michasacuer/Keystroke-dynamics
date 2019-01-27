@@ -43,6 +43,7 @@
 
     <!-- Navbar -->
     <string name="nav_logout">Logout</string>
+    <string name="nav_info">About</string>
 
     <!-- Progres dialog -->
     <string name="communicate">Please wait...</string>

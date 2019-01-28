@@ -1,5 +1,6 @@
 package com.example.admin.keystroke_dynamics.DTO.User;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -27,4 +28,7 @@ public interface UserDao {
 
     @Query("Select * FROM users")
     List<User> getAllUsers();
+
+    @Query("SELECT * FROM users")
+    LiveData<List<User>> getAllLiveUsers();
 }

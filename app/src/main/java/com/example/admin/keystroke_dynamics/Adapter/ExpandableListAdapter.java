@@ -10,8 +10,10 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import com.example.admin.keystroke_dynamics.DTO.ApplicationDatabase;
 import com.example.admin.keystroke_dynamics.DTO.Measure.Measure;
 import com.example.admin.keystroke_dynamics.DTO.Measure.MeasureWrapper;
+import com.example.admin.keystroke_dynamics.DTO.User.User;
 import com.example.admin.keystroke_dynamics.R;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
@@ -20,12 +22,19 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private List<String> expandableListTitle;
     private HashMap<String, List<String>> expandableListDetail;
     private List<Measure> measures;
+    private List<User> users;
 
-    public ExpandableListAdapter(Context context, List<String> expandableListTitle, HashMap<String, List<String>> expandableListDetail, List<Measure> measures) {
+    public ExpandableListAdapter(Context context,
+                                 List<String> expandableListTitle,
+                                 HashMap<String, List<String>> expandableListDetail,
+                                 List<Measure> measures,
+                                 List<User> users) {
         this.context = context;
         this.expandableListTitle = expandableListTitle;
         this.expandableListDetail = expandableListDetail;
         this.measures = measures;
+        this.users = users;
+        db = ApplicationDatabase.getDatabase(context);
     }
 
     @Override
@@ -49,7 +58,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         TextView expandedListTextViewMs = convertView.findViewById(R.id.expanded_list_measure_textview_ms);
         expandedListTextView.setText(expandedListText);
         MeasureWrapper measure = new MeasureWrapper(measures.get(listPosition));
-        expandedListTextViewMs.setText(Integer.toString(measure.times.get(expandedListPosition)));
+        expandedListTextViewMs.setText(Integer.toString(measure.times.get(expandedListPosition)) + " ms");
         return convertView;
     }
 
@@ -84,6 +93,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         listTitleTextView.setTypeface(null, Typeface.BOLD);
         MeasureWrapper measure = new MeasureWrapper(measures.get(listPosition));
         listTitleTextView.setText("ID: " + Integer.toString(measure.id));
+        User user = users.get(measure.userId-1);
+        listTitleTextViewUserName.setText(user.getUsername());
 
         return convertView;
     }
@@ -97,4 +108,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int listPosition, int expandedListPosition) {
         return true;
     }
+
+    ApplicationDatabase db;
 }

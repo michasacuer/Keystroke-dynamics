@@ -24,6 +24,8 @@ import com.example.admin.keystroke_dynamics.Adapter.ExpandableListDataMeasures;
 import com.example.admin.keystroke_dynamics.AddMeasure.ActualMeasure;
 import com.example.admin.keystroke_dynamics.DTO.Measure.Measure;
 import com.example.admin.keystroke_dynamics.DTO.Measure.MeasureViewModel;
+import com.example.admin.keystroke_dynamics.DTO.User.User;
+import com.example.admin.keystroke_dynamics.DTO.User.UserViewModel;
 import com.example.admin.keystroke_dynamics.Login.LoggedUser;
 import com.example.admin.keystroke_dynamics.R;
 import com.example.admin.keystroke_dynamics.Utils.PreferenceEditor;
@@ -66,17 +68,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             usernameText.setText(loggedUser.getUsername());
         }
 
+        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
+        userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
+            @Override
+            public void onChanged(@Nullable List<User> users) {
+                usersFromObserver = users;
+            }
+        });
+
         measureViewModel = ViewModelProviders.of(this).get(MeasureViewModel.class);
         measureViewModel.getAllMeasures().observe(this, new Observer<List<Measure>>() {
             @Override
             public void onChanged(@Nullable List<Measure> measures) {
                 expandableListView = findViewById(R.id.expandable_listview);
                 expandableListDataMeasures = new ExpandableListDataMeasures(getApplicationContext(), measures);
-
-
                 expandableListDetail = expandableListDataMeasures.getData();
                 expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-                expandableListAdapter = new ExpandableListAdapter(getApplicationContext(), expandableListTitle, expandableListDetail, measures);
+                expandableListAdapter = new ExpandableListAdapter(getApplicationContext(), expandableListTitle, expandableListDetail, measures, usersFromObserver);
                 expandableListView.setAdapter(expandableListAdapter);
             }
         });
@@ -143,7 +151,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private List<String> expandableListTitle;
     private HashMap<String, List<String>> expandableListDetail;
     private MeasureViewModel measureViewModel;
+    private UserViewModel userViewModel;
     private ActionBarDrawerToggle toggle;
     private Toolbar toolbar;
     private View header;
+    private List<User> usersFromObserver;
 }

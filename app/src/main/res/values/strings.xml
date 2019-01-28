@@ -56,4 +56,5 @@
     <string name="keystroke">Keystroke Dynamics</string>
     <string name="information">About</string>
     <string name="content">User recognition by typing speed (realse time).</string>
+    <string name="classification_content">Classified user: </string>
 </resources>

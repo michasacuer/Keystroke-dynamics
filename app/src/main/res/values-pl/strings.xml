@@ -56,4 +56,5 @@
     <string name="keystroke">Keystroke Dynamics</string>
     <string name="information">Informacje</string>
     <string name="content">Aplikacja rozpoznająca użytkownika po prędkości pisania (realese time).</string>
+    <string name="classification_content">Sklasyfikowany użytkownik to: </string>
 </resources>

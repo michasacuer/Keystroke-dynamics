@@ -3,6 +3,7 @@ package com.example.admin.keystroke_dynamics.Activities;
 import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,9 +11,11 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextThemeWrapper;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -87,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
                 expandableListAdapter = new ExpandableListAdapter(getApplicationContext(), expandableListTitle, expandableListDetail, measures, usersFromObserver);
                 expandableListView.setAdapter(expandableListAdapter);
+                measuresFromObserver = measures;
             }
         });
 
@@ -122,7 +126,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     measureViewModel.insert(ActualMeasure.getInstance());
                     break;
                 case REQUEST_CODE_CLASSIFY:
-                    knn.execute(ActualMeasure.getInstance());
+                    knn = new kNN();
+                    AlertDialog dialog = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AppTheme_Dark_AlertDialog))
+                            .setTitle(getString(R.string.classification_content) + " " + Integer.toString(knn.execute(ActualMeasure.getInstance(), measuresFromObserver)))
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                }
+                            })
+                            .setNegativeButton("Cancel", null).create();
+                    dialog.show();
                     break;
             }
         }
@@ -175,5 +187,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private View header;
     private List<User> usersFromObserver;
+    private List<Measure> measuresFromObserver;
     private kNN knn;
 }

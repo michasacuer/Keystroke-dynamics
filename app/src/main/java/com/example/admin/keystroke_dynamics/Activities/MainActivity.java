@@ -12,15 +12,27 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.admin.keystroke_dynamics.Adapter.ExpandableListAdapter;
+import com.example.admin.keystroke_dynamics.Adapter.ExpandableListDataPump;
 import com.example.admin.keystroke_dynamics.Login.LoggedUser;
 import com.example.admin.keystroke_dynamics.R;
 import com.example.admin.keystroke_dynamics.Utils.PreferenceEditor;
 import com.github.clans.fab.FloatingActionButton;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    ExpandableListView expandableListView;
+    ExpandableListAdapter expandableListAdapter;
+    List<String> expandableListTitle;
+    HashMap<String, List<String>> expandableListDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +67,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             usernameText.setText(loggedUser.getUsername());
         }
 
+        expandableListView = (ExpandableListView) findViewById(R.id.expandable_listview);
+        expandableListDetail = ExpandableListDataPump.getData();
+        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+        expandableListAdapter = new ExpandableListAdapter(this, expandableListTitle, expandableListDetail);
+        expandableListView.setAdapter(expandableListAdapter);
+
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                Toast.makeText(getApplicationContext(),
+                        expandableListTitle.get(groupPosition) + " List Expanded.",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+                Toast.makeText(getApplicationContext(),
+                        expandableListTitle.get(groupPosition) + " List Collapsed.",
+                        Toast.LENGTH_SHORT).show();
+
+            }
+        });
         addMeasureActivity = new Intent(this, AddMeasureActivity.class);
 
         addMeasureButton = findViewById(R.id.floating_button_addMeasure);

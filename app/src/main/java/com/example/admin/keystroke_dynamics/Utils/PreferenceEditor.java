@@ -31,6 +31,10 @@ public class PreferenceEditor {
         credentialsEditor.apply();
     }
 
+    public int getUserId(){
+        return loggerUserCredentials.getInt(KEY_ID, -1);
+    }
+
     public void clear(){
         loggerUserCredentials.edit().clear().commit();
     }

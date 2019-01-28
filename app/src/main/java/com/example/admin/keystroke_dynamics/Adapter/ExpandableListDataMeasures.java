@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.admin.keystroke_dynamics.DTO.ApplicationDatabase;
 import com.example.admin.keystroke_dynamics.DTO.Measure.Measure;
+import com.example.admin.keystroke_dynamics.DTO.MeasureRepository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,15 +12,14 @@ import java.util.List;
 
 public class ExpandableListDataMeasures {
 
-    public ExpandableListDataMeasures(Context context){
+    public ExpandableListDataMeasures(Context context, List<Measure> measures){
         this.context = context;
+        this.measures = measures;
     }
 
     public HashMap<String, List<String>> getData() {
 
-        List<Measure> measures = getMeasures();
-
-        //for (Measure item: measures) {
+        for (Measure item: measures) {
             List<String> measure = new ArrayList<String>();
             measure.add("9");
             measure.add("R");
@@ -31,20 +31,16 @@ public class ExpandableListDataMeasures {
             measure.add("0");
             measure.add("n");
 
-            //expandableListDetail.put("ID: " + item.getId(), measure);
-            expandableListDetail.put("ID: ", measure);
-        //}
+            expandableListDetail.put("ID: " + item.getId(), measure);
+            //expandableListDetail.put("ID: ", measure);
+        }
 
         return expandableListDetail;
         //return null;
     }
 
-    private List<Measure> getMeasures(){
-        db = ApplicationDatabase.getDatabase(context);
-        return null;
-    }
-
+    private List<Measure> measures;
     private HashMap<String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
-    private ApplicationDatabase db;
+    private MeasureRepository repository;
     private Context context;
 }

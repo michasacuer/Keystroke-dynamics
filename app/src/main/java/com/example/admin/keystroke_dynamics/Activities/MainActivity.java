@@ -70,15 +70,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         measureViewModel.getAllMeasures().observe(this, new Observer<List<Measure>>() {
             @Override
             public void onChanged(@Nullable List<Measure> measures) {
+                expandableListView = findViewById(R.id.expandable_listview);
+                expandableListDataMeasures = new ExpandableListDataMeasures(getApplicationContext(), measures);
+
+
+                expandableListDetail = expandableListDataMeasures.getData();
+                expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+                expandableListAdapter = new ExpandableListAdapter(getApplicationContext(), expandableListTitle, expandableListDetail);
+                expandableListView.setAdapter(expandableListAdapter);
             }
         });
 
-        expandableListView = findViewById(R.id.expandable_listview);
-        expandableListDataMeasures = new ExpandableListDataMeasures(getApplicationContext());
+        /*expandableListView = findViewById(R.id.expandable_listview);
+
         expandableListDetail = expandableListDataMeasures.getData();
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
         expandableListAdapter = new ExpandableListAdapter(this, expandableListTitle, expandableListDetail);
-        expandableListView.setAdapter(expandableListAdapter);
+        expandableListView.setAdapter(expandableListAdapter);*/
 
         //addMeasureActivity = new Intent(this, AddMeasureActivity.class);
 
@@ -93,19 +101,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(resultCode != Activity.RESULT_OK){
-            finish();
-        }
-        switch(requestCode){
-            case REQUEST_CODE_LOGIN:
-                loggedUser = loggedUser.getInstance();
-                loggedUserSharedPreferenceEditor.save(loggedUser);
-                emailText.setText(loggedUser.getEmail());
-                usernameText.setText(loggedUser.getUsername());
-                break;
-            case REQUEST_CODE_ADD_MEASURE:
-                measureViewModel.insert(ActualMeasure.getInstance());
-                break;
+        if(resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case REQUEST_CODE_LOGIN:
+                    loggedUser = loggedUser.getInstance();
+                    loggedUserSharedPreferenceEditor.save(loggedUser);
+                    emailText.setText(loggedUser.getEmail());
+                    usernameText.setText(loggedUser.getUsername());
+                    break;
+                case REQUEST_CODE_ADD_MEASURE:
+                    measureViewModel.insert(ActualMeasure.getInstance());
+                    break;
+            }
         }
     }
 
@@ -131,8 +138,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    static final private int REQUEST_CODE_LOGIN = 0;
-    static final private int REQUEST_CODE_ADD_MEASURE = 1;
+    private static final int REQUEST_CODE_LOGIN = 0;
+    private static final int REQUEST_CODE_ADD_MEASURE = 1;
     private FloatingActionButton addMeasureButton;
     private DrawerLayout drawerLayout;
     private LoggedUser loggedUser;
@@ -148,5 +155,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ActionBarDrawerToggle toggle;
     private Toolbar toolbar;
     private View header;
-
 }

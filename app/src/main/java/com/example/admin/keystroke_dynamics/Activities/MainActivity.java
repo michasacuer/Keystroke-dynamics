@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.admin.keystroke_dynamics.Adapter.ExpandableListAdapter;
 import com.example.admin.keystroke_dynamics.Adapter.ExpandableListDataMeasures;
+import com.example.admin.keystroke_dynamics.AddMeasure.ActualMeasure;
 import com.example.admin.keystroke_dynamics.DTO.Measure.Measure;
 import com.example.admin.keystroke_dynamics.DTO.Measure.MeasureViewModel;
 import com.example.admin.keystroke_dynamics.Login.LoggedUser;
@@ -43,16 +44,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         loggedUserSharedPreferenceEditor = new PreferenceEditor(this);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        View header=navigationView.getHeaderView(0);
+        header = navigationView.getHeaderView(0);
         emailText = header.findViewById(R.id.nav_text_email);
         usernameText = header.findViewById(R.id.nav_text_username);
 
@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivityForResult(new Intent(this, LoginActivity.class), REQUEST_CODE_LOGIN);
 
         else{
-            isLogged = true;
             loggedUser = loggedUser.getInstance();
             loggedUserSharedPreferenceEditor.load(loggedUser);
             emailText.setText(loggedUser.getEmail());
@@ -74,32 +73,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        expandableListView = (ExpandableListView) findViewById(R.id.expandable_listview);
+        expandableListView = findViewById(R.id.expandable_listview);
         expandableListDataMeasures = new ExpandableListDataMeasures(getApplicationContext());
         expandableListDetail = expandableListDataMeasures.getData();
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
         expandableListAdapter = new ExpandableListAdapter(this, expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
 
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        expandableListTitle.get(groupPosition) + " List Expanded.",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
-
-            @Override
-            public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        expandableListTitle.get(groupPosition) + " List Collapsed.",
-                        Toast.LENGTH_SHORT).show();
-
-            }
-        });
         //addMeasureActivity = new Intent(this, AddMeasureActivity.class);
 
         addMeasureButton = findViewById(R.id.floating_button_addMeasure);
@@ -118,15 +98,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         switch(requestCode){
             case REQUEST_CODE_LOGIN:
-                isLogged = true;
                 loggedUser = loggedUser.getInstance();
                 loggedUserSharedPreferenceEditor.save(loggedUser);
                 emailText.setText(loggedUser.getEmail());
                 usernameText.setText(loggedUser.getUsername());
                 break;
             case REQUEST_CODE_ADD_MEASURE:
-                Measure measure = new Measure();
-                measureViewModel.insert(measure);
+                measureViewModel.insert(ActualMeasure.getInstance());
                 break;
         }
     }
@@ -144,7 +122,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item){
         switch(item.getItemId()){
             case R.id.nav_logout:
-                isLogged = false;
                 loggedUser.resetInstance();
                 startActivityForResult(new Intent(this, LoginActivity.class), REQUEST_CODE_LOGIN);
                 loggedUserSharedPreferenceEditor.clear();
@@ -157,9 +134,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     static final private int REQUEST_CODE_LOGIN = 0;
     static final private int REQUEST_CODE_ADD_MEASURE = 1;
     private FloatingActionButton addMeasureButton;
-    private Intent addMeasureActivity;
     private DrawerLayout drawerLayout;
-    private boolean isLogged = false;
     private LoggedUser loggedUser;
     private TextView emailText;
     private TextView usernameText;
@@ -170,5 +145,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private List<String> expandableListTitle;
     private HashMap<String, List<String>> expandableListDetail;
     private MeasureViewModel measureViewModel;
+    private ActionBarDrawerToggle toggle;
+    private Toolbar toolbar;
+    private View header;
 
 }

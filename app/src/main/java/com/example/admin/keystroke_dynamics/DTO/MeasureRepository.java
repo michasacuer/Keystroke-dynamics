@@ -1,14 +1,11 @@
 package com.example.admin.keystroke_dynamics.DTO;
 
-import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.content.Context;
 import android.os.AsyncTask;
 
 import com.example.admin.keystroke_dynamics.DTO.Measure.Measure;
 import com.example.admin.keystroke_dynamics.DTO.Measure.MeasureDao;
-import com.example.admin.keystroke_dynamics.DTO.User.User;
-import com.example.admin.keystroke_dynamics.DTO.User.UserDao;
 
 import java.util.List;
 

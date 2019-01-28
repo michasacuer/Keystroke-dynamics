@@ -51,4 +51,9 @@
 
     <!-- Expandable list -->
     <string name="measure">Measure</string>
+
+    <!-- Info Dialog -->
+    <string name="keystroke">Keystroke Dynamics</string>
+    <string name="information">About</string>
+    <string name="content">User recognition by typing speed (realse time).</string>
 </resources>

@@ -48,5 +48,13 @@
         <item name="android:textColor">@color/primary_darker</item>
     </style>
 
+    <style name="AppTheme.Dark.AlertDialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/primary</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/primary_darker</item>
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+
 
 </resources>

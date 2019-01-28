@@ -51,4 +51,9 @@
 
     <!-- Expandable list -->
     <string name="measure">Pomiar</string>
+
+    <!-- Info Dialog -->
+    <string name="keystroke">Keystroke Dynamics</string>
+    <string name="information">Informacje</string>
+    <string name="content">Aplikacja rozpoznająca użytkownika po prędkości pisania (realese time).</string>
 </resources>

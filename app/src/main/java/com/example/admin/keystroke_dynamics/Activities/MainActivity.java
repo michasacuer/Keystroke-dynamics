@@ -133,6 +133,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 loggedUserSharedPreferenceEditor.clear();
                 Toast.makeText(getApplicationContext(), getString(R.string.logout), Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.nav_info:
+                InfoDialog infoDialog = new InfoDialog();
+                infoDialog.show(getSupportFragmentManager(), "info dialog");
+                break;
         }
         return true;
     }

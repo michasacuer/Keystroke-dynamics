@@ -129,9 +129,7 @@ public class AddMeasureActivity extends AppCompatActivity {
         });
     }
 
-
     private boolean firstMeasure = true;
-
     private long stopwatchTimeStart;
     private long stopwatchTimeStop;
     private Measure measure;
@@ -139,5 +137,4 @@ public class AddMeasureActivity extends AppCompatActivity {
     private Button cancelButton;
     private Button acceptButton;
     private PreferenceEditor preferenceEditor;
-
 }

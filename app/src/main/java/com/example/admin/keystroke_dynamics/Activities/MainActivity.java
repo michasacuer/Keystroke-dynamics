@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.admin.keystroke_dynamics.Adapter.ExpandableListAdapter;
 import com.example.admin.keystroke_dynamics.Adapter.ExpandableListDataMeasures;
 import com.example.admin.keystroke_dynamics.AddMeasure.ActualMeasure;
+import com.example.admin.keystroke_dynamics.Classifier.kNN;
 import com.example.admin.keystroke_dynamics.DTO.Measure.Measure;
 import com.example.admin.keystroke_dynamics.DTO.Measure.MeasureViewModel;
 import com.example.admin.keystroke_dynamics.DTO.User.User;
@@ -96,6 +97,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivityForResult(new Intent(getApplicationContext(), AddMeasureActivity.class), REQUEST_CODE_ADD_MEASURE);
             }
         });
+
+        classifyButton = findViewById(R.id.floating_button_classification);
+        classifyButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivityForResult(new Intent(getApplicationContext(), AddMeasureActivity.class), REQUEST_CODE_CLASSIFY);
+            }
+        });
+
     }
 
     @Override
@@ -110,6 +120,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     break;
                 case REQUEST_CODE_ADD_MEASURE:
                     measureViewModel.insert(ActualMeasure.getInstance());
+                    break;
+                case REQUEST_CODE_CLASSIFY:
+                    knn.execute(ActualMeasure.getInstance());
                     break;
             }
         }
@@ -143,7 +156,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private static final int REQUEST_CODE_LOGIN = 0;
     private static final int REQUEST_CODE_ADD_MEASURE = 1;
+    private static final int REQUEST_CODE_CLASSIFY = 2;
     private FloatingActionButton addMeasureButton;
+    private FloatingActionButton classifyButton;
     private DrawerLayout drawerLayout;
     private LoggedUser loggedUser;
     private TextView emailText;
@@ -160,4 +175,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private View header;
     private List<User> usersFromObserver;
+    private kNN knn;
 }

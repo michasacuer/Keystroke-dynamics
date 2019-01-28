@@ -41,8 +41,14 @@ public class AddMeasureActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 measure.setUserId(preferenceEditor.getUserId());
-                setResult(Activity.RESULT_OK);
-                finish();
+                if(measureText.getText().length() == 9) {
+                    setResult(Activity.RESULT_OK);
+                    finish();
+                }
+                else{
+                    setResult(Activity.RESULT_CANCELED);
+                    finish();
+                }
             }
         });
 

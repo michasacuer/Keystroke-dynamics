@@ -41,7 +41,7 @@ public class Signup extends AsyncTask<String, Boolean, Boolean> {
             } catch(Exception e){
                 throw new Exception();
             }
-            MailSender sender = new MailSender("michasacuer3@gmail.com", "pass");
+            MailSender sender = new MailSender("michasacuer3@gmail.com", "ppp");
             sender.sendMail(body[4], body[3], body[1], body[1]);
             return Boolean.TRUE;
         } catch(Exception e) { }

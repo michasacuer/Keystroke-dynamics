@@ -127,8 +127,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     break;
                 case REQUEST_CODE_CLASSIFY:
                     knn = new kNN();
+                    int id = knn.execute(ActualMeasure.getInstance(), measuresFromObserver);
                     AlertDialog dialog = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AppTheme_Dark_AlertDialog))
-                            .setTitle(getString(R.string.classification_content) + " " + Integer.toString(knn.execute(ActualMeasure.getInstance(), measuresFromObserver)))
+                            .setTitle(getString(R.string.classification_content) + " " + usersFromObserver.get(id-1).getUsername())
                             .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                 }

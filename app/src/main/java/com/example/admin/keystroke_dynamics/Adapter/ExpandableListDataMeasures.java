@@ -19,7 +19,7 @@ public class ExpandableListDataMeasures {
 
         List<Measure> measures = getMeasures();
 
-        for (Measure item: measures) {
+        //for (Measure item: measures) {
             List<String> measure = new ArrayList<String>();
             measure.add("9");
             measure.add("R");
@@ -31,10 +31,12 @@ public class ExpandableListDataMeasures {
             measure.add("0");
             measure.add("n");
 
-            expandableListDetail.put("ID: " + item.getId(), measure);
-        }
+            //expandableListDetail.put("ID: " + item.getId(), measure);
+            expandableListDetail.put("ID: ", measure);
+        //}
 
         return expandableListDetail;
+        //return null;
     }
 
     private List<Measure> getMeasures(){

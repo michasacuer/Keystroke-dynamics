@@ -13,7 +13,7 @@ import com.example.admin.keystroke_dynamics.DTO.Measure.MeasureDao;
 import com.example.admin.keystroke_dynamics.DTO.User.User;
 import com.example.admin.keystroke_dynamics.DTO.User.UserDao;
 
-@Database(entities = {User.class, Measure.class}, version = 3)
+@Database(entities = {User.class, Measure.class}, version = 4)
 public abstract class ApplicationDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();

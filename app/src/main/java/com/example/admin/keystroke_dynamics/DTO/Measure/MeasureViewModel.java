@@ -20,8 +20,6 @@ public class MeasureViewModel extends AndroidViewModel {
     public void insert(Measure measure) { measureRepository.insert(measure);}
 
     private MeasureRepository measureRepository;
-
     private LiveData<List<Measure>> allMeasures;
-
 
 }

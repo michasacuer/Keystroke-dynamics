@@ -124,10 +124,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 emailText.setText(loggedUser.getEmail());
                 usernameText.setText(loggedUser.getUsername());
                 break;
-
             case REQUEST_CODE_ADD_MEASURE:
                 Measure measure = new Measure();
                 measureViewModel.insert(measure);
+                break;
         }
     }
 

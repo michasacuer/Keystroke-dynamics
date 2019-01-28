@@ -1,5 +1,6 @@
 package com.example.admin.keystroke_dynamics.DTO.Measure;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -14,7 +15,7 @@ public interface MeasureDao {
     void insertMeasure(Measure measure);
 
     @Query("SELECT * FROM measures")
-    List<Measure> getAllMeasures();
+    LiveData<List<Measure>> getAllMeasures();
 
     @Query("SELECT * FROM measures WHERE userId = :userId")
     List<Measure> getUserMeasures(int userId);

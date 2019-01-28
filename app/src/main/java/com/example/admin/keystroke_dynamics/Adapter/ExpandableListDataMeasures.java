@@ -32,15 +32,11 @@ public class ExpandableListDataMeasures {
             measure.add("n");
 
             expandableListDetail.put("ID: " + item.getId(), measure);
-            //expandableListDetail.put("ID: ", measure);
         }
-
         return expandableListDetail;
-        //return null;
     }
 
     private List<Measure> measures;
     private HashMap<String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
-    private MeasureRepository repository;
     private Context context;
 }

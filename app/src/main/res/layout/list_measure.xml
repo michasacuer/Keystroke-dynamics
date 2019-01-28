@@ -26,7 +26,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"/>
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/list_measure_textview_user_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="TEST2"

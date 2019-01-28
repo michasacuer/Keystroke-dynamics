@@ -76,19 +76,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 expandableListDetail = expandableListDataMeasures.getData();
                 expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-                expandableListAdapter = new ExpandableListAdapter(getApplicationContext(), expandableListTitle, expandableListDetail);
+                expandableListAdapter = new ExpandableListAdapter(getApplicationContext(), expandableListTitle, expandableListDetail, measures);
                 expandableListView.setAdapter(expandableListAdapter);
             }
         });
-
-        /*expandableListView = findViewById(R.id.expandable_listview);
-
-        expandableListDetail = expandableListDataMeasures.getData();
-        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-        expandableListAdapter = new ExpandableListAdapter(this, expandableListTitle, expandableListDetail);
-        expandableListView.setAdapter(expandableListAdapter);*/
-
-        //addMeasureActivity = new Intent(this, AddMeasureActivity.class);
 
         addMeasureButton = findViewById(R.id.floating_button_addMeasure);
         addMeasureButton.setOnClickListener(new View.OnClickListener(){

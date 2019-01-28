@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import com.example.admin.keystroke_dynamics.DTO.Measure.Measure;
+import com.example.admin.keystroke_dynamics.DTO.Measure.MeasureWrapper;
 import com.example.admin.keystroke_dynamics.R;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
@@ -17,18 +19,18 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private List<String> expandableListTitle;
     private HashMap<String, List<String>> expandableListDetail;
+    private List<Measure> measures;
 
-    public ExpandableListAdapter(Context context, List<String> expandableListTitle,
-                                       HashMap<String, List<String>> expandableListDetail) {
+    public ExpandableListAdapter(Context context, List<String> expandableListTitle, HashMap<String, List<String>> expandableListDetail, List<Measure> measures) {
         this.context = context;
         this.expandableListTitle = expandableListTitle;
         this.expandableListDetail = expandableListDetail;
+        this.measures = measures;
     }
 
     @Override
     public Object getChild(int listPosition, int expandedListPosition) {
-        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
-                .get(expandedListPosition);
+        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition)).get(expandedListPosition);
     }
 
     @Override
@@ -37,24 +39,23 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int listPosition, final int expandedListPosition,
-                             boolean isLastChild, View convertView, ViewGroup parent) {
+    public View getChildView(int listPosition, final int expandedListPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         final String expandedListText = (String) getChild(listPosition, expandedListPosition);
         if (convertView == null) {
-            LayoutInflater layoutInflater = (LayoutInflater) this.context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.item_measure, null);
         }
-        TextView expandedListTextView = (TextView) convertView
-                .findViewById(R.id.expanded_list_measure_textview);
+        TextView expandedListTextView = (TextView) convertView.findViewById(R.id.expanded_list_measure_textview);
+        TextView expandedListTextViewMs = convertView.findViewById(R.id.expanded_list_measure_textview_ms);
         expandedListTextView.setText(expandedListText);
+        MeasureWrapper measure = new MeasureWrapper(measures.get(listPosition));
+        expandedListTextViewMs.setText(Integer.toString(measure.times.get(expandedListPosition)));
         return convertView;
     }
 
     @Override
     public int getChildrenCount(int listPosition) {
-        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
-                .size();
+        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition)).size();
     }
 
     @Override
@@ -73,18 +74,16 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getGroupView(int listPosition, boolean isExpanded,
-                             View convertView, ViewGroup parent) {
-        String listTitle = (String) getGroup(listPosition);
+    public View getGroupView(int listPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            LayoutInflater layoutInflater = (LayoutInflater) this.context.
-                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_measure, null);
         }
-        TextView listTitleTextView = (TextView) convertView
-                .findViewById(R.id.list_measure_textview);
+        TextView listTitleTextView = (TextView) convertView.findViewById(R.id.list_measure_textview);
+        TextView listTitleTextViewUserName = (TextView) convertView.findViewById(R.id.list_measure_textview_user_name);
         listTitleTextView.setTypeface(null, Typeface.BOLD);
-        listTitleTextView.setText(listTitle);
+        MeasureWrapper measure = new MeasureWrapper(measures.get(listPosition));
+        listTitleTextView.setText("ID: " + Integer.toString(measure.id));
 
         return convertView;
     }

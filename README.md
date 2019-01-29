@@ -14,5 +14,8 @@ accurate, but its impossible to get it from default keyboard on Android device.
 - Registration
 - Adding measures
 - Classification
+- Logout
+- Remember loged user on device
+- English and Polish languages
 
 ![My image](https://github.com/michasacuer/Keystroke-dynamics/blob/master/photos/8.jpg) ![My image](https://github.com/michasacuer/Keystroke-dynamics/blob/master/photos/3.jpg) ![My image](https://github.com/michasacuer/Keystroke-dynamics/blob/master/photos/4.jpg)

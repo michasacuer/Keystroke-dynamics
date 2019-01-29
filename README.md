@@ -1,5 +1,7 @@
 # Keystroke dynamics
 
+![My image](https://github.com/michasacuer/Keystroke-dynamics/blob/master/app/src/main/res/drawable/logo.png)
+
 Keystroke dynamics, keystroke biometrics, typing dynamics and lately typing biometrics, is the detailed timing information which describes exactly when each key was pressed and when it was released as a person is typing at a  keyboard.
 
 ![My image](https://github.com/michasacuer/Keystroke-dynamics/blob/master/photos/5.jpg) ![My image](https://github.com/michasacuer/Keystroke-dynamics/blob/master/photos/7.jpg)
@@ -11,10 +13,10 @@ Because Android not provide any features for catching **KeyUp** and **KeyDown** 
 accurate, but its impossible to get it from default keyboard on Android device.
 
 # Functionalities
+- Login/Logout
 - Registration
 - Adding measures
 - Classification
-- Logout
 - Remember loged user on device
 - English and Polish languages
 

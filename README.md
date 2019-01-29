@@ -1,5 +1,3 @@
-# Keystroke dynamics
-
 ![My image](https://github.com/michasacuer/Keystroke-dynamics/blob/master/app/src/main/res/drawable/logo.png)
 
 Keystroke dynamics, keystroke biometrics, typing dynamics and lately typing biometrics, is the detailed timing information which describes exactly when each key was pressed and when it was released as a person is typing at a  keyboard.

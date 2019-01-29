@@ -4,7 +4,8 @@ Keystroke dynamics, keystroke biometrics, typing dynamics and lately typing biom
 
 ![My image](https://github.com/michasacuer/Keystroke-dynamics/blob/master/photos/5.jpg) ![My image](https://github.com/michasacuer/Keystroke-dynamics/blob/master/photos/7.jpg)
 
-My Keystroke Dynamics is simple app to user recognition based on **REALESE TIME**. Classification based on kNN alghoritm and Manhattan distance
+My Keystroke Dynamics is simple app to user recognition based on **REALESE TIME**. Classification based on kNN 
+algorithm and Manhattan distance
 
 # Why Realese time?
 
